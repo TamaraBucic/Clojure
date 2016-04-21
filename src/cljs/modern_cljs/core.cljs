@@ -10,5 +10,5 @@
 
 ;; print to console
 (println "Hello world!")
-(println "O đes")
+(println "Hello")
 

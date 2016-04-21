@@ -3,3 +3,9 @@
 :cljs/quit
 (:cljs/quit)
 :cljs/quit
+(start-repl)
+(js/alert "HEllo")
+:cljs/quit
+(start-repl)
+(js/alert "aj još jednom")
+:cljs/quit
