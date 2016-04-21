@@ -1,0 +1,5 @@
+(start-repl)
+(js/alert "o đes")
+:cljs/quit
+(:cljs/quit)
+:cljs/quit
