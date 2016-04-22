@@ -90,3 +90,17 @@ s/calculate
 (l/init)
 (.-onsubmit (by-id "loginForm"))
 :cljs/quit
+(start-repl)
+(require '[modern-cljs.shopping :as shop] :reload
+'[domnina.core :as dom] :reload
+'[domina.events :as evt] :reload)
+ (require '[modern-cljs.shopping :as shop] :reload
+                    '[domina.core :as dom] :reload
+                    '[domina.events :as evt] :reload)
+(require '[modern-cljs.shopping :as shop] :reload
+                    '[domina.core :as dom] :reload
+                    '[domina.events :as evt] :reload)
+(evt/listen! (dom/by-id "calc") :click shop/calculate)
+(evt/unlisten! (dom/by-id "calc") :click)
+(evt/get-listeners (dom/by-id "calc") :click)
+:cljs/stop
