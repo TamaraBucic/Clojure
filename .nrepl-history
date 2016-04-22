@@ -9,3 +9,47 @@
 (start-repl)
 (js/alert "aj još jednom")
 :cljs/quit
+(start-repl)
+js/window
+js/document
+js/console
+(js/console.log "one more hello")
+(.getElementById js/document "loginForm")
+(.log console "bla")
+(.log js/console "bla")
+(.-value (.getElementById js/document "email"))
+(set! (.-value(.getElementById js/document "email")) "custom@set")
+(.-value (.getElementById js/document "email"))
+(count (.-value(.getElementById js/document "email")))
+(count (.-value(.getElementById js/document "password")))
+(doc defn)
+(doc >)
+(doc if)
+(doc let)
+(source let)
+(require '[modern-cljs.login :as 1] :reload)
+(require '[modern-cljs.login :as l] :reload)
+l/validate-form
+(require '[modern-cljs.login :as l] :reload)
+l/validate-form
+(require '[modern-cljs.login :as l] :reload)
+l/validate-form
+:cljs/quit
+(require '[modern-cljs.login :as l] :reload)
+(start-repl
+)
+(require '[modern-cljs.login :as l] :reload)
+l/validate-form
+:cljs/quit
+js/window
+(js/console.log "Hello from ClojureScript!")
+(start-repl)
+(js/console.log "Hello from ClojureScript!")
+(js/document.getElementById "loginForm")
+ (.-value (.getElementById js/document "email"))
+(require '[modern-cljs.login :as l] :reload)
+l/validate-form
+(source l/validate-form)
+ (set! (.-value (.getElementById js/document "email")) "")
+(set! (.-value (.getElementById js/document "password")) "")
+(l/validate-form)
