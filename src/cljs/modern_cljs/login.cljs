@@ -19,6 +19,10 @@
     ;; our validate-form function
     (let [login-form (.getElementById js/document "loginForm")]
       (set! (.-onsubmit login-form) validate-form))))
-
-;; initialize the HTML page in unobtrusive way
-(set! (.-onload js/window) init)
+(defn ^:export init []
+  (if (and js/document
+           (.-getElementById js/document))
+    ;; get loginForm by element id and set its onsubmit property to
+    ;; validate-form function
+    (let [login-form (.getElementById js/document "loginForm")]
+      (set! (.-onsubmit login-form) validate-form))))

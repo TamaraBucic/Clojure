@@ -17,5 +17,3 @@
            (.-getElementById js/document))
     (let [the-form (.getElementById js/document "shoppingForm")]
       (set! (.-onsubmit the-form) calculate))))
-
-(set! (.-onload js/window) init)
