@@ -12,6 +12,8 @@
                 [weasel "0.7.0"]                      ;; needed by bREPL
                 [org.clojure/tools.nrepl "0.2.12"]    ;; needed by bREPL
                 [org.clojars.magomimmo/domina "2.0.0-SNAPSHOT"] ;; domina (DOM library written in CLJS )
+                [hiccups "0.3.0"] ;; Hiccup is a library for representing HTML in Clojure
+
 				]) 
  
 
