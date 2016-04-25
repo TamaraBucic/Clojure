@@ -135,3 +135,14 @@ html [:span {:class "foo"> "bar])
 :cljs/quit
 (+ "1" "2")
 (start-repl)
+(require '[domina.events :as evt])
+(start-repl
+)
+(start-repl)
+(in-ns 'domina.events)
+(map keyword(gobj/getValues events/EventType))
+(map keyword (gobj/getValues events/EventType))
+(start-repl)
+(in-ns 'domina.events)
+(map keyword (gobj/getValues events/EventType))
+:cljs/quit
