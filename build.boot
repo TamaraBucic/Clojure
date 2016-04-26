@@ -1,5 +1,5 @@
 (set-env!
- :source-paths #{"src/clj" "src/cljs"}
+ :source-paths #{"src/clj" "src/cljs" "src/cljc"}
  :resource-paths #{"html"}
 
  :dependencies '[[org.clojure/clojure "1.7.0"]         ;; add CLJ
@@ -17,6 +17,7 @@
                 [org.clojars.magomimmo/shoreleave-remote-ring "0.3.1"]
                 [org.clojars.magomimmo/shoreleave-remote "0.3.1"]
                 [javax.servlet/servlet-api "2.5"]     ;; for dev only
+                [org.clojars.magomimmo/valip "0.4.0-SNAPSHOT"] ;; valip dependency for server-side validation
 				]) 
  
 

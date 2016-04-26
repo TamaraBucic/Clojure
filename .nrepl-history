@@ -153,3 +153,80 @@ html [:span {:class "foo"> "bar])
 (dom/attr (dom/by-id "email") :pattern)
 (dom/attr (dom/by-id "email") :title)
 (start-repl)
+(use 'valip.core 'valip.predicates)
+(validate {:email "you@yourdomain.com" :password "weak1"}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+(validate {:email nil :password nil}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+ (validate {:email nil :password "weak1"}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+ (validate {:email "bademail@baddomain" :password "weak1"}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+ (validate {:email "you@yourdomain.com" :password "badpasswd"}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+(start-repl)
+(require '[valip.core :refer [validate]]
+'[valip.predicates :refer [present? matches email-address?]]
+)
+ (require '[valip.core :refer [validate]]
+                    '[valip.predicates :refer [present? matches email-address?]])
+(start-repl)
+(require '[valip.core :refer [validate]]
+                    '[valip.predicates :refer [present? matches email-address?]])
+(present? nil)
+(present? "weak1")
+(email-address? "m@s.com")
+(email-address? "m@s.co")
+(email-address? "m@s")
+(email-address? "m@s.c")
+(validate {:email "sdf@dasf.com" :password "weak1"}
+[:email present? "emajl cant be empty"]
+[:email email-address? "Invalid emajl"]
+[:password present? "pwd cant be empty"]
+[:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+(validate {:email nil :password nil}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+ (validate {:email "you@yourdomain.com" :password nil}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+(validate {:email nil :password "weak1"}
+                     [:email present? "Email can't be empty"]
+                     [:email email-address? "Invalid email format"]
+                     [:password present? "Password can't be empty"]
+                     [:password (matches #"^(?=.*\d).{4,8}$") "Invalid password format"])
+(require '[modern-cljs.login.validators :refer [user-credential-errors]])
+(user-credential-errors nil nil)
+(user-credential-errors "bademajl" nil)
+(user-credential-errors "bademajl@g.com" nil)
+(user-credential-errors "bademajl@g.com" "weak2")
+:cljs/quit
+(use 'valip.predicates)
+(valid-email-domain? "me@me.com")
+(valid-email-domain? "me@google-nospam.com")
+(use 'valip.core)
+(validate {:email "me@me.com} [:email valid-email-domain? "The domain doesnt exist"])
+(validate {:email "me@me.com"}
+                     [:email valid-email-domain? "The domain does not exist!"])
+(validate {:email "me@google-nospam.com"}
+                     [:email valid-email-domain? "The domain does not exist!"])
+(start-repl)
