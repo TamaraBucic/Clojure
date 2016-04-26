@@ -18,6 +18,7 @@
                 [org.clojars.magomimmo/shoreleave-remote "0.3.1"]
                 [javax.servlet/servlet-api "2.5"]     ;; for dev only
                 [org.clojars.magomimmo/valip "0.4.0-SNAPSHOT"] ;; valip dependency for server-side validation
+                [enlive "1.1.6"] ;; selector based lib for clojure
 				]) 
  
 
@@ -30,7 +31,7 @@
 	"Launch Immediate Feedback Development Environment"
 	[]
 	(comp
-		(serve :handler 'modern-cljs.remotes/app    ;; ring handler
+		(serve :handler 'modern-cljs.core/app    ;; ring handler
 			:resource-root "target" ;; resource-path
 			:reload true) ;; reload server side ns
 		(watch)
