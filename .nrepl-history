@@ -230,3 +230,55 @@ html [:span {:class "foo"> "bar])
 (validate {:email "me@google-nospam.com"}
                      [:email valid-email-domain? "The domain does not exist!"])
 (start-repl)
+(use 'modern-cljs.shopping.validators)
+(validate-shopping-form "1" "0" "0" "0")
+(validate-shopping-form "-1" "0" "0" "0")
+(validate-shopping-form "-1" "0" "0" "")
+(set-env! :source-paths #(conj % "test/cljc"))
+(require '[clojure.test :as t]
+'[modern-cljs.shopping.validators-test])
+(require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(set-env! :source-paths #(conj % "test/cljc"))
+ (require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(use 'modern-cljs.shopping.validators)
+(validate-shopping-form "-10" "0" "0" "0")
+(set-env! :source-paths #(conj % "test/cljc"))
+(require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(set-env! :source-paths #(conj % "test/cljc"))
+(require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(set-env! :source-paths #(conj % "test/cljc"))
+require '[clojure.test :as t]
+(require '[clojure.test :as t]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test
+)
+(require '[modern-cljs.shopping.validators-test] :reload)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[modern-cljs.shopping.validators-test] :reload)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[modern-cljs.shopping.validators-test] :reload)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[modern-cljs.shopping.validators-test] :reload)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[modern-cljs.shopping.validators-test] :reload)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[modern-cljs.shopping.validators-test] :reload)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(start-repl)
+(require '[cljs.test :as t :include-macros true])
+(require '[modern-cljs.shopping.validators-test :as v])
+(t/run-tests 'modern-cljs.shopping.validators-test)
