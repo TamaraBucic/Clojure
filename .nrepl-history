@@ -282,3 +282,25 @@ require '[clojure.test :as t]
 (require '[cljs.test :as t :include-macros true])
 (require '[modern-cljs.shopping.validators-test :as v])
 (t/run-tests 'modern-cljs.shopping.validators-test)
+(pprint (get-env :source-paths))
+(require '[clojure.test :as t] '[modern-cljs.shopping.validators-test])
+(t/run-test 'modern-cljs.shopping.validators-test)
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(start-repl)
+(require '[cljs.test :as t :include-macros true]
+'[modern-cljs.shopping.validators-test :as v])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+boot test -h
+(start-repl)
+(require '[cljs.test :as t :include-macros true]
+'[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(require '[cljs.test :as t :include-macros true]
+                    '[modern-cljs.shopping.validators-test])
+(require '[cljs.test :as t :include-macros true]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)
+(start-repl)
+(require '[cljs.test :as t :include-macros true]
+                    '[modern-cljs.shopping.validators-test])
+(t/run-tests 'modern-cljs.shopping.validators-test)

@@ -19,14 +19,49 @@
                 [javax.servlet/servlet-api "2.5"]     ;; for dev only
                 [org.clojars.magomimmo/valip "0.4.0-SNAPSHOT"] ;; valip dependency for server-side validation
                 [enlive "1.1.6"] ;; selector based lib for clojure
+                [adzerk/boot-test "1.0.7"] ;; test pre-build task 
+                [crisptrutski/boot-cljs-test "0.2.1-SNAPSHOT"]
 				]) 
  
 
 (require '[adzerk.boot-cljs :refer [cljs]] ;; make boot-cljs visible
  		'[pandeiro.boot-http :refer [serve]] ;; make serve task visible
  		'[adzerk.boot-reload :refer [reload]] ;; make reload visible	
- 		'[adzerk.boot-cljs-repl :refer[cljs-repl start-repl]] ;; make repl visilbe
+ 		'[adzerk.boot-cljs-repl :refer[cljs-repl start-repl]] ;; make repl visible
+ 		'[adzerk.boot-test :refer [test]]
+ 		'[crisptrutski.boot-cljs-test :refer [test-cljs]]
  		) 
+
+(deftask testing
+	"Add test/cljc for CLJ/CLJS testing purpose"
+	[]
+	(set-env! :source-paths #(conj % "test/cljc"))
+	identity
+)
+
+(deftask tdd
+	"Launch a TDD Environment"
+	[]
+	(comp
+		(serve 	:handler 'modern-cljs.core/app
+				:resource-root "target"
+				:reload true
+			)
+		(testing)
+		(watch)
+		(reload)
+		(cljs-repl)
+		(test-cljs	:out-file "main.js"
+					:js-env :phantom 
+					:namespaces '#{modern-cljs.shopping.validators-test}
+					:update-fs? true)
+		(test :namespaces '#{modern-cljs.shopping.validators-test})
+		(target :dir #{"target"})
+	)
+)
+
+
+
 (deftask dev
 	"Launch Immediate Feedback Development Environment"
 	[]
